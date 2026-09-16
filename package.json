@@ -1,0 +1,6 @@
+{
+  "name": "tech-demos",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "packageManager": "bun@1.2.21"
+}
