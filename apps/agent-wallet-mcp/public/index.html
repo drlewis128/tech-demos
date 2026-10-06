@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Wallet · MCP demo</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">◆</span>
+      <div>
+        <h1>Finance District · Agent Wallet</h1>
+        <p class="sub">MCP wallet loop, visible on the wire</p>
+      </div>
+    </div>
+    <div class="mode">
+      <span id="mode-badge" class="badge sim">SIMULATED</span>
+      <span id="mode-note" class="mode-note"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="col">
+      <div class="card" id="wallet-card">
+        <div class="card-head">
+          <h2>Agent wallet</h2>
+          <span class="tool-tag">getMyInfo · getWalletOverview</span>
+        </div>
+        <div id="addresses" class="addresses"><p class="empty">Connect to load the wallet.</p></div>
+        <div id="balances"></div>
+        <div class="total" id="total"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Activity</h2>
+          <span class="tool-tag">getAccountActivity</span>
+        </div>
+        <div id="activity"><p class="empty">—</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Discovered tools</h2>
+          <span class="tool-tag">tools/list</span>
+        </div>
+        <div id="tools" class="tools"><p class="empty">—</p></div>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card actions">
+        <h2>Agent actions</h2>
+        <div class="btn-row">
+          <button id="btn-connect" class="primary">1 · Connect &amp; discover tools</button>
+          <button id="btn-wallet" disabled>2 · Load wallet via MCP</button>
+        </div>
+        <div class="btn-row">
+          <button id="btn-price" disabled>Price lookup</button>
+          <select id="price-symbol">
+            <option>ETH</option><option>BTC</option><option>SOL</option><option>USDC</option><option>FDUSD</option>
+          </select>
+          <span id="price-out" class="price-out"></span>
+        </div>
+        <div class="btn-row">
+          <button id="btn-paid" class="pay" disabled>3 · Run x402 paid action — 0.05 USDC (simulated)</button>
+        </div>
+        <div id="paid-result" class="paid-result hidden"></div>
+      </div>
+
+      <div class="card wire">
+        <div class="card-head">
+          <h2>MCP wire log</h2>
+          <button id="btn-clear" class="ghost">clear</button>
+        </div>
+        <div id="wire-log"><p class="empty">JSON-RPC frames and x402 HTTP hops appear here.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Simulated demo — mirrors the <a href="https://developers.fd.xyz/agent-wallet/ai-integration/mcp-server" target="_blank" rel="noreferrer">wallet-mcp.fd.xyz</a>
+    tool shapes. No real funds, keys, or chains involved.
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
